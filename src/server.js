@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 
+import routes from "./routes";
+
 dotenv.config({
-  path: process.env.NODE_ENV === "teste" ? ".env.test" : "env"
+  path: process.env.NODE_ENV === "test" ? ".env.test" : "env"
 });
 
 class ServerController {
@@ -18,7 +20,7 @@ class ServerController {
   }
 
   routes() {
-    // this.express.use(express.json());
+    this.express.use("/", routes);
   }
 }
 
